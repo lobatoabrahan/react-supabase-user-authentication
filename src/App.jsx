@@ -24,13 +24,13 @@ const App = () => {
 
   function PrivateRoute({ children, ...props }) {
     const token = sessionStorage.getItem('token');
-    return token ? children : <Navigate to="/" />;
+    return token ? children : <Navigate to="/login" />;
   }
   return (
     <div>
       <Routes>
         <Route path={'/signup'} element={<SignUp />} />
-        <Route path={'/'} element={<Login setToken={setToken} />} />
+        <Route path={'/login'} element={<Login setToken={setToken} />} />
         <Route path={'/homepage'} element={<PrivateRoute><Homepage token={token} /></PrivateRoute>} />
 
       </Routes>

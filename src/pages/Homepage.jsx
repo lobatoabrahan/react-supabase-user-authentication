@@ -6,13 +6,14 @@ const Homepage = ({token}) => {
 
   function handleLogout(){
     sessionStorage.removeItem('token')
-    navigate('/')
+    navigate('/login')
   }
 
   return (
     <div>
-      {token && <h3>Welcome back, {token.user.user_metadata.full_name}</h3>}
+      {token && <h3>Welcome back, {token.user.email}</h3>}
       <button onClick={handleLogout}>Logout</button>
+      <button onClick={() => console.log(token)}>Show Token</button>
     </div>
   )
 }
