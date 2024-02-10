@@ -4,12 +4,6 @@ import { useNavigate } from 'react-router-dom'
 const Homepage = ({token}) => {
   let navigate = useNavigate()
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/')
-    }
-  }, [token, navigate])
-
   function handleLogout(){
     sessionStorage.removeItem('token')
     navigate('/')
